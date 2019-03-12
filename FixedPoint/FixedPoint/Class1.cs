@@ -6,21 +6,36 @@ using System.Threading.Tasks;
 
 namespace FixedPoint
 {
-    public class Q24_8
+    public abstract class num
     {
-        char C;
-        public Q24_8() { }
-        public void prirad(int a)
-        {
-            x = (char)(a+97);
-        }
+        protected byte[] pred, za;
         public override string ToString()
         {
-            return x.ToString();
+            StringBuilder a = new StringBuilder();
+            foreach (byte b in pred)
+                a.Append(Convert.ToString(b, 2).PadLeft(8, '0'));
+            a.Append(".");
+            foreach (byte b in za)
+                a.Append(Convert.ToString(b, 2).PadLeft(8, '0'));
+            return a.ToString();
         }
+        public abstract void prirad(int a);
+    }
+    public class Q24_8 : num
+    {
+        public Q24_8() : base()
+        {
+            pred = new byte[3];
+            za = new byte[1];
+        }
+        public override void prirad(int a)
+        {
+            //
+        }
+        
     }
     public class Fixed<T>
-        where T : Q24_8, new()
+        where T : num, new()
     {
         public T cislo;
         public Fixed(int promenna)
