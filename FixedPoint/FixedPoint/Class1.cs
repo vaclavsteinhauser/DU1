@@ -20,6 +20,7 @@ namespace FixedPoint
             return a.ToString();
         }
         public abstract void prirad(int a);
+        public abstract this.GetType() Add(this.GetType() a);
     }
     public class Q24_8 : num
     {
@@ -36,7 +37,10 @@ namespace FixedPoint
                 a /= 256;
             }
         }
-        
+        public override Q24_8 Add(Q24_8 a)
+        {
+
+        }
     }
     public class Fixed<T>
         where T : num, new()
@@ -48,9 +52,17 @@ namespace FixedPoint
             cislo = new T();
             cislo.prirad(promenna);
         }
+        public Fixed(T x)
+        {
+            cislo = x;
+        }
         public override string ToString()
         {
             return cislo.ToString();
+        }
+        public Fixed<T> Add(Fixed<T> vstup)
+        {
+            return new Fixed<T>(cislo.Add(vstup));
         }
     }
 
