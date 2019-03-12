@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Cuni.Arithmetics.FixedPoint;
+using FixedPoint;
 
-namespace FixedPointApiTest {
+/*namespace FixedPointApiTest {
 #if STUDENT_VERSION
 	class Program {
 		static void Main(string[] args) {
@@ -107,3 +107,4 @@ namespace FixedPointApiTest {
 	}
 #endif
 }
+*/

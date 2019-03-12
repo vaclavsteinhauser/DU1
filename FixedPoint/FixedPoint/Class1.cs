@@ -6,23 +6,28 @@ using System.Threading.Tasks;
 
 namespace FixedPoint
 {
-    private class Q24_8
+    public class Q24_8
     {
-
-        public
+        char C;
+        public Q24_8() { }
+        public void prirad(int a)
+        {
+            x = (char)(a+97);
+        }
+        public override string ToString()
+        {
+            return x.ToString();
+        }
     }
     public class Fixed<T>
+        where T : Q24_8, new()
     {
-
-        T cislo;
-        public Fixed(T promenna)
+        public T cislo;
+        public Fixed(int promenna)
         {
             //Console.WriteLine(T.ToString());
-            cislo = promenna;
-        }
-        public void Write()
-        {
-            Console.WriteLine(cislo);
+            cislo = new T();
+            cislo.prirad(promenna);
         }
         public override string ToString()
         {
