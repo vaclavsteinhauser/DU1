@@ -13,7 +13,7 @@ namespace api
         {
             Fixed<Q24_8> t = new Fixed<Q24_8>(512);
             Console.WriteLine(t);
-            
+            Console.WriteLine(t.Add(new Fixed<Q24_8>(512)));
         }
     }
 }

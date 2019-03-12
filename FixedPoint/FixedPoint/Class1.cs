@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FixedPoint
 {
-    public abstract class num
+    public abstract class num<T>
     {
         protected byte[] pred, za;
         public override string ToString()
@@ -20,9 +20,10 @@ namespace FixedPoint
             return a.ToString();
         }
         public abstract void prirad(int a);
-        public abstract this.GetType() Add(this.GetType() a);
+        public abstract T Add(T a);
+
     }
-    public class Q24_8 : num
+    public class Q24_8 : num<Q24_8>
     {
         public Q24_8() : base()
         {
@@ -34,18 +35,18 @@ namespace FixedPoint
             for (int i = pred.Count() - 1; i >= 0; i--)
             {
                 pred[i] = (byte)(a % 256);
-                a /= 256;
+                a=a >> 8;
             }
         }
         public override Q24_8 Add(Q24_8 a)
         {
-
+            return new Q24_8();
         }
     }
     public class Fixed<T>
-        where T : num, new()
+        where T : num<T>, new()
     {
-        public T cislo;
+        private T cislo { get; }
         public Fixed(int promenna)
         {
             //Console.WriteLine(T.ToString());
@@ -62,7 +63,7 @@ namespace FixedPoint
         }
         public Fixed<T> Add(Fixed<T> vstup)
         {
-            return new Fixed<T>(cislo.Add(vstup));
+            return new Fixed<T>(cislo.Add(vstup.cislo));
         }
     }
 
