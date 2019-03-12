@@ -11,7 +11,9 @@ namespace api
     {
         static void Main(string[] args)
         {
-            Class1
+            Fixed<int> t = new Fixed<int>(4);
+            t.Write();
+            Console.WriteLine(t);
         }
     }
 }
