@@ -30,7 +30,11 @@ namespace FixedPoint
         }
         public override void prirad(int a)
         {
-            //
+            for (int i = pred.Count() - 1; i >= 0; i--)
+            {
+                pred[i] = (byte)(a % 256);
+                a /= 256;
+            }
         }
         
     }
