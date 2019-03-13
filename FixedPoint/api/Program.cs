@@ -11,9 +11,11 @@ namespace api
     {
         static void Main(string[] args)
         {
-            Fixed<Q24_8> t = new Fixed<Q24_8>(512);
-            Console.WriteLine(t);
-            Console.WriteLine(t.Add(new Fixed<Q24_8>(512)));
+            var a = new Fixed<Q8_24>(255);
+            var b = new Fixed<Q8_24>(255);
+            var c = a.Add(b);
+            Console.WriteLine(c);
+            Console.Read();
         }
     }
 }

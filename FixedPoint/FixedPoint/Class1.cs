@@ -7,40 +7,84 @@ using System.Threading.Tasks;
 namespace FixedPoint
 {
     public abstract class num<T>
+        where T : num<T>, new()
     {
-        protected byte[] pred, za;
+        protected int carka;
+        protected byte[] data=new byte[4];
         public override string ToString()
         {
             StringBuilder a = new StringBuilder();
-            foreach (byte b in pred)
-                a.Append(Convert.ToString(b, 2).PadLeft(8, '0'));
-            a.Append(".");
-            foreach (byte b in za)
-                a.Append(Convert.ToString(b, 2).PadLeft(8, '0'));
+            double x = 0;
+            if (data[0] / 128 == 1) // pokud je zaporne
+            {
+                a.Append("-");
+                for(int i=0;i<3;i++)
+                x += (256-data[i]) * Math.Pow(256, carka - i - 1);
+                x += (257-data[3]) * Math.Pow(256, carka - 4);
+            }
+            else
+            for (int i = 0; i < data.Count(); i++)
+            {
+                x += data[i] * Math.Pow(256, carka - i - 1);
+                //x += b;
+            }
+            /*for(int i = 0; i < data.Count(); i++)
+            {
+                if(i==carka)
+                    a.Append(".");
+                a.Append(Convert.ToString(data[i], 2).PadLeft(8, '0'));
+            }
+            a.Append("\n");*/
+
+            for (int i = 0;i < data.Count();i++)
+            {
+                x += data[i]*Math.Pow(256,carka-i-1);
+                //x += b;
+            }
+            a.Append(x);
             return a.ToString();
         }
-        public abstract void prirad(int a);
-        public abstract T Add(T a);
+        public virtual void prirad(int a)
+        {
+            for (int i = carka - 1; i >= 0; i--)
+            {
+                data[i] = (byte)(a % 256);
+                a = a >> 8;
+            }
+        }
+        public virtual T Add(T a)
+        {
+            T novy = new T();
+            byte preteceni = 0;
+            for(int i = data.Count() - 1; i >= 0; i--)
+            {
+                novy.data[i] = (byte)(a.data[i] + this.data[i] + preteceni);// % 256;
+                preteceni = (byte)((a.data[i] + this.data[i] + preteceni) / 256);
+            }
+            return novy;
+        }
+
 
     }
     public class Q24_8 : num<Q24_8>
     {
         public Q24_8() : base()
         {
-            pred = new byte[3];
-            za = new byte[1];
+            carka = 3;
         }
-        public override void prirad(int a)
+    }
+    public class Q16_16 : num<Q16_16>
+    {
+        public Q16_16() : base()
         {
-            for (int i = pred.Count() - 1; i >= 0; i--)
-            {
-                pred[i] = (byte)(a % 256);
-                a=a >> 8;
-            }
+            carka = 2;
         }
-        public override Q24_8 Add(Q24_8 a)
+    }
+    public class Q8_24 : num<Q8_24>
+    {
+        public Q8_24() : base()
         {
-            return new Q24_8();
+            carka = 1;
         }
     }
     public class Fixed<T>
@@ -65,6 +109,10 @@ namespace FixedPoint
         {
             return new Fixed<T>(cislo.Add(vstup.cislo));
         }
+        /*public Fixed<T> Subtract(Fixed<T> vstup)
+        {
+            return new Fixed<T>(cislo.Subtract(vstup.cislo));
+        }*/
     }
 
 }
