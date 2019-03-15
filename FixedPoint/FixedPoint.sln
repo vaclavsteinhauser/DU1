@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.28705.295
+VisualStudioVersion = 16.0.28711.60
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixedPoint", "FixedPoint\FixedPoint.csproj", "{1BCEB06D-96FF-471E-B5B7-954136E5D02E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{F1C83F52-BE4A-43F5-8507-8FF80BCB70D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixedPointApiTest", "api\FixedPointApiTest.csproj", "{F1C83F52-BE4A-43F5-8507-8FF80BCB70D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixedPointMSTests", "FixedPointMSTests\FixedPointMSTests.csproj", "{42080200-257D-42CB-93EE-9072B58472FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F1C83F52-BE4A-43F5-8507-8FF80BCB70D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1C83F52-BE4A-43F5-8507-8FF80BCB70D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1C83F52-BE4A-43F5-8507-8FF80BCB70D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42080200-257D-42CB-93EE-9072B58472FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42080200-257D-42CB-93EE-9072B58472FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42080200-257D-42CB-93EE-9072B58472FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42080200-257D-42CB-93EE-9072B58472FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
