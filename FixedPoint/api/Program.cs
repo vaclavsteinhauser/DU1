@@ -9,7 +9,7 @@ namespace api
 {
     class Program
     {
-        
+        /*
        static void Main(string[] args)
         {
             {
@@ -26,6 +26,6 @@ namespace api
                 Console.WriteLine($"625 / 1000: -4,70833331346512\n");
             }
             //Console.Read();
-        }
+        }*/
     }
 }

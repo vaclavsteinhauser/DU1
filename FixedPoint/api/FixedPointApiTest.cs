@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using FixedPoint;
-/*
+
 namespace FixedPointApiTest {
 #if STUDENT_VERSION
 	class Program {
@@ -106,4 +106,4 @@ namespace FixedPointApiTest {
 		}
 	}
 #endif
-}*/
+}
