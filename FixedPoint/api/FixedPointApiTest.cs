@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using FixedPoint;
-
-/*namespace FixedPointApiTest {
+/*
+namespace FixedPointApiTest {
 #if STUDENT_VERSION
 	class Program {
 		static void Main(string[] args) {
@@ -106,5 +106,4 @@ using FixedPoint;
 		}
 	}
 #endif
-}
-*/
+}*/
