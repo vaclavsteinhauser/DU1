@@ -10,16 +10,8 @@ namespace api
     class Program
     {
         
-        static void Main(string[] args)
+       static void Main(string[] args)
         {
-
-            {
-                var f1 = new Fixed<Q16_16>(248);
-                var f2 = new Fixed<Q16_16>(10);
-                var f3 = f1.Divide(f2);
-                Console.WriteLine($"248 / 10: {f3}");
-                Console.WriteLine($"248 / 10: 24,7999877929688\n");
-            }
             {
                 var f1 = new Fixed<Q8_24>(248);
                 var f2 = new Fixed<Q8_24>(10);
