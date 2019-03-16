@@ -49,4 +49,180 @@ namespace FixedPointMSTests
             Assert.AreEqual(x, y.ToString());
         }
     }
+
+    [TestClass]
+    public class Test24_8
+    {
+        [TestMethod]
+        public void test1()
+        {
+            var f = new Fixed<Q24_8>(3);
+            Assert.AreEqual(f.ToString(), "3");
+        }
+        [TestMethod]
+        public void test2()
+        {
+            var f1 = new Fixed<Q24_8>(3);
+            var f2 = new Fixed<Q24_8>(2);
+            var f3 = f1.Add(f2);
+            Assert.AreEqual(f3.ToString(), "5");
+        }
+        [TestMethod]
+        public void test3()
+        {
+            var f1 = new Fixed<Q24_8>(3);
+            var f2 = new Fixed<Q24_8>(2);
+            var f3 = f1.Multiply(f2);
+            Assert.AreEqual(f3.ToString(), "6");
+        }
+        [TestMethod]
+        public void test4()
+        {
+            var f1 = new Fixed<Q24_8>(19);
+            var f2 = new Fixed<Q24_8>(13);
+            var f3 = f1.Multiply(f2);
+            Assert.AreEqual(f3.ToString(), "247");
+        }
+        [TestMethod]
+        public void test5()
+        {
+            var f1 = new Fixed<Q24_8>(3);
+            var f2 = new Fixed<Q24_8>(2);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "1,5");
+        }
+        [TestMethod]
+        public void test6()
+        {
+            var f1 = new Fixed<Q24_8>(248);
+            var f2 = new Fixed<Q24_8>(10);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "24,796875");
+        }
+        [TestMethod]
+        public void test7()
+        {
+            var f1 = new Fixed<Q24_8>(625);
+            var f2 = new Fixed<Q24_8>(1000);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "0,625");
+        }
+    }
+
+    [TestClass]
+    public class Test16_16
+    {
+        [TestMethod]
+        public void test1()
+        {
+            var f = new Fixed<Q16_16>(3);
+            Assert.AreEqual(f.ToString(), "3");
+        }
+        [TestMethod]
+        public void test2()
+        {
+            var f1 = new Fixed<Q16_16>(3);
+            var f2 = new Fixed<Q16_16>(2);
+            var f3 = f1.Add(f2);
+            Assert.AreEqual(f3.ToString(), "5");
+        }
+        [TestMethod]
+        public void test3()
+        {
+            var f1 = new Fixed<Q16_16>(3);
+            var f2 = new Fixed<Q16_16>(2);
+            var f3 = f1.Multiply(f2);
+            Assert.AreEqual(f3.ToString(), "6");
+        }
+        [TestMethod]
+        public void test4()
+        {
+            var f1 = new Fixed<Q16_16>(19);
+            var f2 = new Fixed<Q16_16>(13);
+            var f3 = f1.Multiply(f2);
+            Assert.AreEqual(f3.ToString(), "247");
+        }
+        [TestMethod]
+        public void test5()
+        {
+            var f1 = new Fixed<Q16_16>(3);
+            var f2 = new Fixed<Q16_16>(2);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "1,5");
+        }
+        [TestMethod]
+        public void test6()
+        {
+            var f1 = new Fixed<Q16_16>(248);
+            var f2 = new Fixed<Q16_16>(10);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "24,7999877929688");
+        }
+        [TestMethod]
+        public void test7()
+        {
+            var f1 = new Fixed<Q16_16>(625);
+            var f2 = new Fixed<Q16_16>(1000);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "0,625");
+        }
+    }
+    [TestClass]
+    public class Test8_24
+    {
+        [TestMethod]
+        public void test1()
+        {
+            var f = new Fixed<Q8_24>(3);
+            Assert.AreEqual(f.ToString(), "3");
+        }
+        [TestMethod]
+        public void test2()
+        {
+            var f1 = new Fixed<Q8_24>(3);
+            var f2 = new Fixed<Q8_24>(2);
+            var f3 = f1.Add(f2);
+            Assert.AreEqual(f3.ToString(), "5");
+        }
+        [TestMethod]
+        public void test3()
+        {
+            var f1 = new Fixed<Q8_24>(3);
+            var f2 = new Fixed<Q8_24>(2);
+            var f3 = f1.Multiply(f2);
+            Assert.AreEqual(f3.ToString(), "6");
+        }
+        [TestMethod]
+        public void test4()
+        {
+            var f1 = new Fixed<Q8_24>(19);
+            var f2 = new Fixed<Q8_24>(13);
+            var f3 = f1.Multiply(f2);
+            Assert.AreEqual(f3.ToString(), "-9");
+        }
+        [TestMethod]
+        public void test5()
+        {
+            var f1 = new Fixed<Q8_24>(3);
+            var f2 = new Fixed<Q8_24>(2);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "1,5");
+        }
+        [TestMethod]
+        public void test6()
+        {
+            var f1 = new Fixed<Q8_24>(248);
+            var f2 = new Fixed<Q8_24>(10);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "-0,799999952316284");
+        }
+        [TestMethod]
+        public void test7()
+        {
+            var f1 = new Fixed<Q8_24>(625);
+            var f2 = new Fixed<Q8_24>(1000);
+            var f3 = f1.Divide(f2);
+            Assert.AreEqual(f3.ToString(), "-4,70833331346512");
+        }
+    }
 }
