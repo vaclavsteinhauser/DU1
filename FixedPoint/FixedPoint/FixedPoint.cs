@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FixedPoint
+namespace Cuni.Arithmetics.FixedPoint
 {
     public abstract class Num<T>
         where T : Num<T>, new()

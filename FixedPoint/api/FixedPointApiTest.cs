@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using FixedPoint;
+using Cuni.Arithmetics.FixedPoint;
 
 namespace FixedPointApiTest {
 #if STUDENT_VERSION
