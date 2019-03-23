@@ -119,6 +119,26 @@ namespace Cuni.Arithmetics.FixedPoint
     public class Fixed<T>
         where T : Num<T>, new()
     {
+        public static implicit operator Fixed<T>(int i)
+        {
+            return new Fixed<T>(i);
+        }
+        public static Fixed<T> operator+ (Fixed<T> b, Fixed<T> c)
+        {
+            return b.Add(c);
+        }
+        public static Fixed<T> operator* (Fixed<T> b, Fixed<T> c)
+        {
+            return b.Multiply(c);
+        }
+        public static Fixed<T> operator- (Fixed<T> b, Fixed<T> c)
+        {
+            return b.Subtract(c);
+        }
+        public static Fixed<T> operator/ (Fixed<T> b, Fixed<T> c)
+        {
+            return b.Divide(c);
+        }
         private T Cislo { get; }
         public Fixed(int promenna)
         {
