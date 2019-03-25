@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cuni.Arithmetics.FixedPoint
 {
@@ -28,6 +24,18 @@ namespace Cuni.Arithmetics.FixedPoint
         {
              data = (UInt32)(a << exp);
 
+        }
+        public virtual void Prirad(Q8_24 a)
+        {
+            data = (UInt32)(a.data >> (Q8_24.exp- exp));
+        }
+        public virtual void Prirad(Q16_16 a)
+        {
+            data = (UInt32)(a.data >> (Q16_16.exp -exp));
+        }
+        public virtual void Prirad(Q24_8 a)
+        {
+            data = (UInt32)(a.data >> (Q24_8.exp- exp));
         }
         public virtual T Add(T a)
         {
@@ -122,6 +130,24 @@ namespace Cuni.Arithmetics.FixedPoint
         public static implicit operator Fixed<T>(int i)
         {
             return new Fixed<T>(i);
+        }
+        public static implicit operator Fixed<T>(Fixed<Q8_24> i)
+        {
+            T cislo = new T();
+            cislo.Prirad(i.Cislo);
+            return new Fixed<T>(cislo);
+        }
+        public static implicit operator Fixed<T>(Fixed<Q16_16> i)
+        {
+            T cislo = new T();
+            cislo.Prirad(i.Cislo);
+            return new Fixed<T>(cislo);
+        }
+        public static implicit operator Fixed<T>(Fixed<Q24_8> i)
+        {
+            T cislo = new T();
+            cislo.Prirad(i.Cislo);
+            return new Fixed<T>(cislo);
         }
         public static Fixed<T> operator+ (Fixed<T> b, Fixed<T> c)
         {
